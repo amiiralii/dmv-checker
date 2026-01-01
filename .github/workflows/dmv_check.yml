@@ -25,10 +25,20 @@ jobs:
           playwright install firefox
           playwright install-deps firefox
       
+      - name: Debug - Check if secrets are set
+        env:
+          EMAIL_TO: ${{ secrets.EMAIL_TO }}
+          EMAIL_FROM: ${{ secrets.EMAIL_FROM }}
+          GMAIL_APP_PASSWORD: ${{ secrets.GMAIL_APP_PASSWORD }}
+        run: |
+          echo "EMAIL_TO is set: $([[ -n \"$EMAIL_TO\" ]] && echo 'YES' || echo 'NO')"
+          echo "EMAIL_FROM is set: $([[ -n \"$EMAIL_FROM\" ]] && echo 'YES' || echo 'NO')"
+          echo "GMAIL_APP_PASSWORD is set: $([[ -n \"$GMAIL_APP_PASSWORD\" ]] && echo 'YES' || echo 'NO')"
+          echo "GMAIL_APP_PASSWORD length: ${#GMAIL_APP_PASSWORD}"
+      
       - name: Run DMV checker
         env:
           EMAIL_TO: ${{ secrets.EMAIL_TO }}
           EMAIL_FROM: ${{ secrets.EMAIL_FROM }}
           GMAIL_APP_PASSWORD: ${{ secrets.GMAIL_APP_PASSWORD }}
         run: python dmv_checker.py
-
