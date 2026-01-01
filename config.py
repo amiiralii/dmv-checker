@@ -1,5 +1,4 @@
 # DMV Appointment Checker Configuration
-import os
 
 # ============================================
 # NC DMV SETTINGS
@@ -13,15 +12,14 @@ SERVICE_TYPE = "Driver License - First Time new driver over 18, new N.C. residen
 TARGET_LOCATION = "Raleigh West, Avent Ferry Shopping Center, 3231 Avent Ferry Road, Raleigh, NC 27606"
 
 # ============================================
-# EMAIL SETTINGS (uses env vars for GitHub Actions, fallback for local)
+# EMAIL SETTINGS
 # ============================================
-EMAIL_TO = os.environ.get("EMAIL_TO", "amiraliraygan@gmail.com")
-EMAIL_FROM = os.environ.get("EMAIL_FROM", "amiraliraygan@gmail.com")
+EMAIL_TO = "amiraliraygan@gmail.com"
+EMAIL_FROM = "amiraliraygan@gmail.com"
 
-# Gmail App Password - reads from environment variable first
-# For local development, falls back to hardcoded value
-# For GitHub Actions, set this as a secret
-GMAIL_APP_PASSWORD = os.environ.get("GMAIL_APP_PASSWORD", "tthu fkac uemr zywz")
+# Gmail App Password (you need to generate this - see README)
+# DO NOT use your regular Gmail password!
+GMAIL_APP_PASSWORD = "tthu fkac uemr zywz" 
 
 # ============================================
 # CHECKER SETTINGS
@@ -30,9 +28,9 @@ GMAIL_APP_PASSWORD = os.environ.get("GMAIL_APP_PASSWORD", "tthu fkac uemr zywz")
 PAGE_TIMEOUT = 30
 
 # Run in headless mode (no browser window)
-# Always True in GitHub Actions (CI environment), configurable locally
-HEADLESS = os.environ.get("CI", "false").lower() == "true" or True
+HEADLESS = False
 
 # How often to check when running continuously (seconds)
 # Default: 3600 = 1 hour
 CHECK_INTERVAL = 3600
+
