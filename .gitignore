@@ -1,0 +1,25 @@
+# Logs
+*.log
+debug_log.txt
+
+# Screenshots
+*.png
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+.env
+venv/
+.venv/
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+
