@@ -172,7 +172,8 @@ def check_for_appointments() -> dict:
             
 
             # Find all divs with "disabled-unit" in their class
-            active_units = page.locator("div[class*='Activate-Unit']").all()
+            active_units = page.locator("div[class*='disabled-unit']").all()
+            # active_units = page.locator("div[class*='Activate-Unit']").all()
             logger.info(f"Found {len(active_units)} Activate-unit divs")
             
             # Log results to txt file
