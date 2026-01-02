@@ -48,6 +48,7 @@ def send_email(subject: str, body: str) -> bool:
                 {body.replace(chr(10), '<br>')}
             </div>
             <p style="color: #666; font-size: 14px;">
+                <strong>Timestamp:</strong> {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}<br>
                 <strong>Quick Link:</strong><br>
                 <a href="{config.DMV_URL}" style="color: #1976d2;">{config.DMV_URL}</a>
             </p>
@@ -172,8 +173,8 @@ def check_for_appointments() -> dict:
             
 
             # Find all divs with "disabled-unit" in their class
-            active_units = page.locator("div[class*='disabled-unit']").all()
-            # active_units = page.locator("div[class*='Activate-Unit']").all()
+            # active_units = page.locator("div[class*='disabled-unit']").all()
+            active_units = page.locator("div[class*='Activate-Unit']").all()
             logger.info(f"Found {len(active_units)} Activate-unit divs")
             
             # Log results to txt file
