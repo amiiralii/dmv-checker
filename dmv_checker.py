@@ -220,7 +220,7 @@ def run_check():
     """Run a single appointment check and send notification if available."""
     logger.info("=" * 50)
     logger.info("DMV Appointment Check Started")
-    logger.info(config.EMAIL_TO, config.EMAIL_FROM, config.GMAIL_APP_PASSWORD )
+    logger.info(f"EMAIL_TO: {config.EMAIL_TO}, EMAIL_FROM: {config.EMAIL_FROM}, GMAIL_APP_PASSWORD is set: {bool(config.GMAIL_APP_PASSWORD)}")
     logger.info("=" * 50)
     
     result = check_for_appointments()
