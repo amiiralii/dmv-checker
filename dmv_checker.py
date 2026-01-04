@@ -220,7 +220,8 @@ def run_check():
     """Run a single appointment check and send notification if available."""
     logger.info("=" * 50)
     logger.info("DMV Appointment Check Started")
-    send_email("test subject", "test body")
+    # Testing the retrieval of github secrets
+    # send_email("test subject", "test body")
     logger.info("=" * 50)
     
     result = check_for_appointments()
