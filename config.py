@@ -15,11 +15,15 @@ TARGET_LOCATION = "Raleigh West, Avent Ferry Shopping Center, 3231 Avent Ferry R
 # ============================================
 # EMAIL SETTINGS (uses env vars for GitHub Actions, fallback for local)
 # ============================================
-EMAIL_TO = os.environ.get("EMAIL_TO", "amiraliraygan@gmail.com")
-EMAIL_FROM = os.environ.get("EMAIL_FROM", "amiraliraygan@gmail.com")
+# It is NOT best practice to hardcode personal email addresses (even if not a password) in a public repo.
+# Better: require EMAIL_TO and EMAIL_FROM to be set in the environment, remove defaults.
+EMAIL_TO = os.environ.get("EMAIL_TO")
+EMAIL_FROM = os.environ.get("EMAIL_FROM")
 
 # Gmail App Password - reads from environment variable first
-GMAIL_APP_PASSWORD = os.environ.get("GMAIL_APP_PASSWORD", "tthu fkac uemr zywz") 
+# WARNING: Never include actual passwords or secrets in source code, especially in a public repo!
+# For safety, do NOT provide a default fallback here. Only read from the environment variable.
+GMAIL_APP_PASSWORD = os.environ.get("GMAIL_APP_PASSWORD")
 
 # ============================================
 # CHECKER SETTINGS
