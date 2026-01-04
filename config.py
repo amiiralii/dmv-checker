@@ -25,7 +25,6 @@ EMAIL_FROM = os.environ.get("EMAIL_FROM")
 # For safety, do NOT provide a default fallback here. Only read from the environment variable.
 GMAIL_APP_PASSWORD = os.environ.get("GMAIL_APP_PASSWORD")
 
-print(EMAIL_TO, EMAIL_FROM, GMAIL_APP_PASSWORD )
 # ============================================
 # CHECKER SETTINGS
 # ============================================
